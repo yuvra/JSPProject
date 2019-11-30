@@ -24,17 +24,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import HomeScreen  from './android/app/src/screens/home/index'
-import { Container} from 'native-base';
- 
-const App = () => {
+import NewsFeed from '../../shared/components/newsFeed/index'
+
+const HomeScreen = () => {
   return (
-    <Container>
-      <View style={{ flex:1}}>
-        <HomeScreen></HomeScreen>
-      </View>
-    </Container>
-    
+    <View style={{ flex:1}}>
+      <NewsFeed></NewsFeed>
+    </View>
   );
 };
 
@@ -77,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomeScreen;
