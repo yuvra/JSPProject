@@ -1,80 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+//
+// import {
+//   Header,
+//   LearnMoreLinks,
+//   Colors,
+//   DebugInstructions,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
+// import HomeScreen from './android/app/src/screens/home/index';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import React, {Component} from 'react';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//For react-navigation 3.0+
+//import { createAppContainer, createStackNavigator } from 'react-navigation';
+//For react-navigation 4.0+
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
-import HomeScreen  from './android/app/src/screens/home/index'
-import { Container} from 'native-base';
- 
-const App = () => {
-  return (
-    <Container>
-      <View style={{ flex:1}}>
-        <HomeScreen></HomeScreen>
-      </View>
-    </Container>
-    
-  );
-};
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+import SplashScreen from './src/SplashScreen';
+// import HomeScreen from './src/HomeScreen';
+import HomeScreen from './src/screens/home/index';
+import FullNews from './src/FullNews';
+import FullNewsFeed from './src/shared/components/FullNewsFeed';
+import CalendarPage from './src/screens/CalendarPage';
+import NotificationPage from './src/screens/NotificationPage';
+const App = createStackNavigator(
+  {
+    SplashScreen: {screen: SplashScreen},
+    HomeScreen: {screen: HomeScreen},
+    FullNews: {screen: FullNews},
+    FullNewsFeed: {screen: FullNewsFeed},
+    CalendarPage: {screen: CalendarPage},
+    NotificationPage: {screen: NotificationPage},
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  {
+    initialRouteName: 'SplashScreen',
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
-export default App;
+);
+export default createAppContainer(App);
