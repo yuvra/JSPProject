@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {Container, Content, Tab, Tabs} from 'native-base';
 
 import {
   Header,
@@ -27,6 +28,7 @@ import {
 import NewsFeed from '../../shared/components/newsFeed/index';
 import ActionBarImage from '../../shared/components/ActionBarImage';
 import LeftActionBarImage from '../../shared/components/LeftActionBarImage';
+import KnowledgeHub from '../KnowledgeHub';
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -64,7 +66,14 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <NewsFeed navigation={this.props.navigation} />
+        <Tabs locked={true}>
+          <Tab heading="न्युज">
+            <NewsFeed navigation={this.props.navigation} />
+          </Tab>
+          <Tab heading="नॉलेज हब ">
+            <KnowledgeHub navigation={this.props.navigation} />
+          </Tab>
+        </Tabs>
       </View>
     );
   }

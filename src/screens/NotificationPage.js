@@ -1,6 +1,22 @@
 import React, {Component} from 'react';
 
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity, ImageBackground} from 'react-native';
+import {List, ListItem} from 'native-base';
+
+const items = [
+  'one',
+  'two',
+  'three',
+  'one',
+  'two',
+  'three',
+  'one',
+  'two',
+  'three',
+  'one',
+  'two',
+  'three',
+];
 
 export default class NotificationPage extends Component {
   render() {
@@ -11,7 +27,17 @@ export default class NotificationPage extends Component {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text>?????</Text>
+        <View style={{paddingRight: 10, paddingLeft: 10, flexDirection: 'row'}}>
+          <List
+            dataArray={items}
+            horizontal={true}
+            renderRow={item => (
+              <ListItem>
+                <Text>{item}</Text>
+              </ListItem>
+            )}
+          />
+        </View>
       </View>
     );
   }

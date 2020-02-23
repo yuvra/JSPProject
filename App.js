@@ -22,7 +22,9 @@ import HomeScreen from './src/screens/home/index';
 import FullNews from './src/FullNews';
 import FullNewsFeed from './src/shared/components/FullNewsFeed';
 import CalendarPage from './src/screens/CalendarPage';
-import NotificationPage from './src/screens/NotificationPage';
+import NotificationPage from './src/screens/SignUpPage';
+import AudioPage from './src/screens/SignUpPage';
+import SignUpPage from './src/screens/SignUpPage';
 const App = createStackNavigator(
   {
     SplashScreen: {screen: SplashScreen},
@@ -31,6 +33,7 @@ const App = createStackNavigator(
     FullNewsFeed: {screen: FullNewsFeed},
     CalendarPage: {screen: CalendarPage},
     NotificationPage: {screen: NotificationPage},
+    AudioPage: {screen: AudioPage},
   },
   {
     initialRouteName: 'SplashScreen',

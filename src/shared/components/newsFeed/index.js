@@ -98,27 +98,22 @@ class NewsFeed extends Component {
     const allNewsMap = this.state.allNewsMap;
     return (
       <SafeAreaView style={{flex: 1}}>
-        <ScrollView style={{flex: 1}}>
-          <Content>
-            {allNewsMap.map((newsObject, index) => {
-              return (
-                <View>
-                  <NewsFeedUiOne
-                    navigateToNewsPage={this.navigateToNewsPage.bind(
-                      this,
-                      index,
-                    )}
-                    newsObject={newsObject}
-                    onSaveToCollectionPress={this.onSaveToCollectionPress}
-                    onLikePress={this.onLikePress}
-                    sendOnWhatsApp={this.sendOnWhatsApp}
-                    index={index}
-                  />
-                </View>
-              );
-            })}
-          </Content>
-        </ScrollView>
+        <Content>
+          {allNewsMap.map((newsObject, index) => {
+            return (
+              <View>
+                <NewsFeedUiOne
+                  navigateToNewsPage={this.navigateToNewsPage.bind(this, index)}
+                  newsObject={newsObject}
+                  onSaveToCollectionPress={this.onSaveToCollectionPress}
+                  onLikePress={this.onLikePress}
+                  sendOnWhatsApp={this.sendOnWhatsApp}
+                  index={index}
+                />
+              </View>
+            );
+          })}
+        </Content>
       </SafeAreaView>
     );
   }
